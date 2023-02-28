@@ -8,7 +8,7 @@ try:  # python2 & python3 compatibility
 except NameError:
     xrange = range
 
-DTYPE = np.float
+DTYPE = np.float64
 ctypedef np.float_t DTYPE_t
 
 cdef int i

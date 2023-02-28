@@ -1,6 +1,5 @@
 import os
 import matplotlib as mpl
-mpl.use('Agg', warn=False)
 import matplotlib.pyplot as plt
 
 
@@ -20,16 +19,20 @@ def text2png(text, fn=None, fontsize=100, dpi=100):
 
     f = plt.figure(frameon=False)
     ax = f.add_subplot(111)
-    plt.text(0.5, 0.5, text,
-             horizontalalignment='center',
-             verticalalignment='center',
-             transform=ax.transAxes,
-             fontsize=fontsize)
+    plt.text(
+        0.5,
+        0.5,
+        text,
+        horizontalalignment="center",
+        verticalalignment="center",
+        transform=ax.transAxes,
+        fontsize=fontsize,
+    )
     ax.set_axis_off()
-    #f.set_size_inches(18.5,10.5)
+    # f.set_size_inches(18.5,10.5)
     if not fn:
-        fn = ''.join(e for e in text if e.isalnum())
-    f.savefig(fn + '.png', bbox_inches='tight', dpi=dpi)
+        fn = "".join(e for e in text if e.isalnum())
+    f.savefig(f"{fn}.png", bbox_inches="tight", dpi=dpi)
     plt.close()
 
 
